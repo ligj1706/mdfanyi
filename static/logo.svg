@@ -1,0 +1,11 @@
+<svg width="120" height="120" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+  <!-- 背景圆形 -->
+  <circle cx="60" cy="60" r="55" fill="#0071e3"/>
+  
+  <!-- 匠字 - 简化版 -->
+  <path d="M40,35 h40 M40,55 h40 M60,35 v50 M45,85 h30" stroke="white" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  
+  <!-- 翻译图标元素 -->
+  <path d="M30,70 L35,60 L40,70" stroke="white" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M80,70 L85,60 L90,70" stroke="white" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
