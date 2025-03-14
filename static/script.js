@@ -1,18 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // 确保进度指示器初始状态为隐藏
-    const progressContainer = document.getElementById('progress-container');
-    if (progressContainer) {
-        progressContainer.style.display = 'none';
-    }
-    
-    // 元素引用
-    const apiKeyInput = document.getElementById('api-key');
-    const apiKeyContainer = document.getElementById('api-key-container');
-    const modelSelect = document.getElementById('model-select');
-    const modelSelectContainer = document.getElementById('model-select-container');
-    const temperatureSlider = document.getElementById('temperature');
-    const temperatureContainer = document.getElementById('temperature-container');
-    const temperatureValue = document.getElementById('temperature-value');
+    // DOM元素
     const sourceText = document.getElementById('source-text');
     const resultText = document.getElementById('result-text');
     const translateBtn = document.getElementById('translate-btn');
@@ -20,238 +7,259 @@ document.addEventListener('DOMContentLoaded', function() {
     const copyResultBtn = document.getElementById('copy-result');
     const downloadResultBtn = document.getElementById('download-result');
     const sourceCount = document.getElementById('source-count');
+    const progressContainer = document.getElementById('progress-container');
     const statusBar = document.getElementById('status-bar');
     const formatInfo = document.getElementById('format-info');
     const translationInfo = document.getElementById('translation-info');
-    const advancedSettingsBtn = document.getElementById('advanced-settings-btn');
-    const advancedSettingsPanel = document.getElementById('advanced-settings-panel');
+    const modelSelect = document.getElementById('model-select');
+    const temperatureSlider = document.getElementById('temperature');
+    const temperatureValue = document.getElementById('temperature-value');
     const themeToggleBtn = document.getElementById('theme-toggle-btn');
-    
-    // 主题切换
-    const savedTheme = localStorage.getItem('theme') || 'light';
-    document.documentElement.setAttribute('data-theme', savedTheme);
-    updateThemeIcon(savedTheme);
-    
-    themeToggleBtn.addEventListener('click', function() {
-        const currentTheme = document.documentElement.getAttribute('data-theme');
-        const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-        
-        document.documentElement.setAttribute('data-theme', newTheme);
-        localStorage.setItem('theme', newTheme);
-        
-        updateThemeIcon(newTheme);
-    });
-    
-    function updateThemeIcon(theme) {
-        if (theme === 'dark') {
-            themeToggleBtn.innerHTML = '<i class="fas fa-sun"></i>';
-        } else {
-            themeToggleBtn.innerHTML = '<i class="fas fa-moon"></i>';
-        }
-    }
-    
-    // 高级设置按钮
-    advancedSettingsBtn.addEventListener('click', function() {
-        if (advancedSettingsPanel.style.display === 'none') {
-            advancedSettingsPanel.style.display = 'block';
-            advancedSettingsBtn.innerHTML = '<i class="fas fa-times"></i> 隐藏高级设置';
-        } else {
-            advancedSettingsPanel.style.display = 'none';
-            advancedSettingsBtn.innerHTML = '<i class="fas fa-cog"></i> 高级设置';
-        }
-    });
-    
-    // 保存API密钥到本地存储
-    if (localStorage.getItem('api_key')) {
-        apiKeyInput.value = localStorage.getItem('api_key');
-    }
-    
-    apiKeyInput.addEventListener('change', function() {
-        localStorage.setItem('api_key', apiKeyInput.value);
-    });
-    
-    // 温度滑块更新 - 默认值设为0.1
-    temperatureValue.textContent = temperatureSlider.value;
-    
-    temperatureSlider.addEventListener('input', function() {
-        temperatureValue.textContent = this.value;
-    });
-    
-    // 字数统计
+    const settingsBtn = document.getElementById('settings-btn');
+    const settingsModal = document.getElementById('settings-modal');
+    const closeSettingsBtn = document.getElementById('close-settings');
+
+    // 计数器
     sourceText.addEventListener('input', function() {
-        const count = this.value.length;
-        sourceCount.textContent = `${count}/50000`;
+        const length = sourceText.value.length;
+        sourceCount.textContent = `${length}/50000`;
         
-        if (count > 50000) {
-            sourceCount.style.color = 'red';
+        // 超出限制时显示警告
+        if (length > 50000) {
+            sourceCount.style.color = 'var(--error-color)';
         } else {
             sourceCount.style.color = '';
         }
     });
-    
+
+    // 翻译按钮
+    translateBtn.addEventListener('click', function() {
+        const text = sourceText.value.trim();
+        if (!text) {
+            showNotification('请输入需要翻译的文本', 'error');
+            return;
+        }
+        
+        translateText(text);
+    });
+
+    // 翻译函数
+    async function translateText(text) {
+        translateBtn.disabled = true;
+        progressContainer.style.display = 'flex';
+        resultText.value = '';
+        statusBar.classList.add('hidden');
+        
+        try {
+            const response = await fetch('/translate', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    text: text,
+                    model: modelSelect.value,
+                    temperature: parseFloat(temperatureSlider.value)
+                }),
+            });
+            
+            const result = await response.json();
+            
+            if (response.ok) {
+                resultText.value = result.translated_text;
+                displayStatus(result);
+                showNotification('翻译完成', 'success');
+            } else {
+                showNotification(result.error || '翻译失败，请重试', 'error');
+            }
+        } catch (error) {
+            showNotification('发生错误: ' + error.message, 'error');
+        } finally {
+            translateBtn.disabled = false;
+            progressContainer.style.display = 'none';
+        }
+    }
+
+    // 显示翻译状态
+    function displayStatus(result) {
+        if (result.format_elements) {
+            const elements = result.format_elements;
+            formatInfo.innerHTML = `
+                保留了 ${elements.code_blocks || 0} 个代码块,
+                ${elements.headers || 0} 个标题,
+                ${elements.tables || 0} 个表格,
+                ${elements.links || 0} 个链接
+            `;
+        }
+        
+        if (result.chunks) {
+            translationInfo.textContent = `分成 ${result.chunks} 个块处理`;
+        }
+        
+        statusBar.classList.remove('hidden');
+    }
+
+    // 显示通知
+    function showNotification(message, type = 'info') {
+        // 如果存在先前的通知，移除它
+        const existingNotification = document.querySelector('.notification');
+        if (existingNotification) {
+            existingNotification.remove();
+        }
+        
+        const notification = document.createElement('div');
+        notification.className = `notification ${type}`;
+        notification.textContent = message;
+        
+        document.body.appendChild(notification);
+        
+        // 3秒后自动消失
+        setTimeout(() => {
+            notification.classList.add('fade-out');
+            setTimeout(() => {
+                notification.remove();
+            }, 300);
+        }, 3000);
+    }
+
     // 清空源文本
     clearSourceBtn.addEventListener('click', function() {
         sourceText.value = '';
         sourceCount.textContent = '0/50000';
     });
-    
+
     // 复制结果
     copyResultBtn.addEventListener('click', function() {
-        const text = resultText.value;
-        navigator.clipboard.writeText(text).then(function() {
-            showToast('已复制到剪贴板');
-        }, function() {
-            showToast('复制失败，请手动复制', 'error');
-        });
+        if (!resultText.value) {
+            showNotification('没有可复制的内容', 'error');
+            return;
+        }
+        
+        resultText.select();
+        document.execCommand('copy');
+        showNotification('已复制到剪贴板', 'success');
     });
-    
+
     // 下载结果
     downloadResultBtn.addEventListener('click', function() {
-        const text = resultText.value;
-        const blob = new Blob([text], { type: 'text/markdown' });
+        if (!resultText.value) {
+            showNotification('没有可下载的内容', 'error');
+            return;
+        }
+        
+        const blob = new Blob([resultText.value], { type: 'text/markdown' });
         const url = URL.createObjectURL(blob);
         const a = document.createElement('a');
         a.href = url;
-        a.download = 'translated_' + new Date().toISOString().slice(0, 10) + '.md';
+        a.download = 'translated_markdown.md';
         document.body.appendChild(a);
         a.click();
         document.body.removeChild(a);
         URL.revokeObjectURL(url);
+        
+        showNotification('文件已下载', 'success');
     });
-    
-    // 翻译按钮
-    translateBtn.addEventListener('click', function() {
-        const text = sourceText.value.trim();
-        const apiKey = apiKeyInput.value.trim();
-        const model = modelSelect.value;
-        const temperature = temperatureSlider.value;
-        
-        if (!text) {
-            showToast('请输入需要翻译的文本', 'error');
-            return;
-        }
-        
-        if (text.length > 50000) {
-            showToast('文本长度超过限制（最大50000字符）', 'error');
-            return;
-        }
-        
-        // 显示进度
-        translateBtn.disabled = true;
-        if (progressContainer) {
-            progressContainer.style.display = 'flex';
-        }
-        resultText.value = '';
-        statusBar.classList.add('hidden');
-        
-        // 发送翻译请求
-        fetch('/translate', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                text: text,
-                api_key: apiKey,
-                temperature: temperature,
-                model: model
-            })
-        })
-        .then(response => {
-            if (!response.ok) {
-                return response.json().then(data => {
-                    throw new Error(data.error || '翻译请求失败');
-                });
-            }
-            return response.json();
-        })
-        .then(data => {
-            resultText.value = data.translated_text;
-            
-            // 显示格式信息
-            formatInfo.innerHTML = `
-                <strong>文档格式:</strong> 
-                代码块: ${data.format_elements.code_blocks}, 
-                标题: ${data.format_elements.headers}, 
-                列表: ${data.format_elements.lists}, 
-                表格: ${data.format_elements.tables}
-            `;
-            
-            translationInfo.innerHTML = `
-                <strong>翻译信息:</strong> 
-                分块数: ${data.chunks}, 
-                模型: ${model}, 
-                温度: ${temperature}
-            `;
-            
-            statusBar.classList.remove('hidden');
-            showToast('翻译完成！', 'success');
-        })
-        .catch(error => {
-            showToast(error.message, 'error');
-            console.error('Error:', error);
-        })
-        .finally(() => {
-            translateBtn.disabled = false;
-            if (progressContainer) {
-                progressContainer.style.display = 'none';
-            }
-        });
+
+    // 更新温度值显示
+    temperatureSlider.addEventListener('input', function() {
+        temperatureValue.textContent = temperatureSlider.value;
     });
-    
-    // 显示提示消息
-    function showToast(message, type = 'info') {
-        const toast = document.createElement('div');
-        toast.className = `toast toast-${type}`;
-        toast.textContent = message;
+
+    // 主题切换
+    themeToggleBtn.addEventListener('click', function() {
+        const currentTheme = document.documentElement.getAttribute('data-theme');
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', newTheme);
         
-        document.body.appendChild(toast);
+        // 更新图标
+        const icon = themeToggleBtn.querySelector('i');
+        if (newTheme === 'dark') {
+            icon.className = 'fas fa-sun';
+        } else {
+            icon.className = 'fas fa-moon';
+        }
         
+        // 保存主题偏好到本地存储
+        localStorage.setItem('theme', newTheme);
+    });
+
+    // 显示设置面板
+    function showSettings() {
+        settingsModal.classList.remove('hidden');
         setTimeout(() => {
-            toast.classList.add('show');
+            settingsModal.classList.add('visible');
         }, 10);
-        
-        setTimeout(() => {
-            toast.classList.remove('show');
-            setTimeout(() => {
-                document.body.removeChild(toast);
-            }, 300);
-        }, 3000);
     }
+
+    // 隐藏设置面板
+    function hideSettings() {
+        settingsModal.classList.remove('visible');
+        setTimeout(() => {
+            settingsModal.classList.add('hidden');
+        }, 300);
+    }
+
+    // 设置按钮点击
+    settingsBtn.addEventListener('click', showSettings);
     
-    // 添加Toast样式
-    const style = document.createElement('style');
-    style.textContent = `
-        .toast {
-            position: fixed;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%) translateY(100px);
-            background-color: #333;
-            color: white;
-            padding: 12px 24px;
-            border-radius: 8px;
-            opacity: 0;
-            transition: all 0.3s ease;
-            z-index: 1000;
+    // 关闭设置按钮点击
+    closeSettingsBtn.addEventListener('click', hideSettings);
+    
+    // 点击模态框外部关闭
+    settingsModal.addEventListener('click', function(e) {
+        if (e.target === settingsModal) {
+            hideSettings();
+        }
+    });
+
+    // 从本地存储加载设置
+    function loadSettings() {
+        // 加载主题
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+            document.documentElement.setAttribute('data-theme', savedTheme);
+            const icon = themeToggleBtn.querySelector('i');
+            icon.className = savedTheme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
         }
         
-        .toast.show {
-            transform: translateX(-50%) translateY(0);
-            opacity: 1;
+        // 加载其他设置
+        const savedModel = localStorage.getItem('model');
+        if (savedModel) {
+            modelSelect.value = savedModel;
         }
         
-        .toast-success {
-            background-color: var(--success-color);
+        const savedTemperature = localStorage.getItem('temperature');
+        if (savedTemperature) {
+            temperatureSlider.value = savedTemperature;
+            temperatureValue.textContent = savedTemperature;
+        }
+    }
+
+    // 保存设置
+    function saveSettings() {
+        localStorage.setItem('model', modelSelect.value);
+        localStorage.setItem('temperature', temperatureSlider.value);
+    }
+
+    // 监听设置变化
+    modelSelect.addEventListener('change', saveSettings);
+    temperatureSlider.addEventListener('change', saveSettings);
+
+    // 页面加载时加载设置
+    loadSettings();
+    
+    // 添加键盘快捷键
+    document.addEventListener('keydown', function(e) {
+        // Esc键关闭设置面板
+        if (e.key === 'Escape' && !settingsModal.classList.contains('hidden')) {
+            hideSettings();
         }
         
-        .toast-error {
-            background-color: var(--error-color);
+        // Cmd/Ctrl + Enter 执行翻译
+        if ((e.metaKey || e.ctrlKey) && e.key === 'Enter') {
+            if (document.activeElement === sourceText && !translateBtn.disabled) {
+                translateBtn.click();
+            }
         }
-        
-        .toast-info {
-            background-color: var(--primary-color);
-        }
-    `;
-    document.head.appendChild(style);
-}); 
+    });
+});

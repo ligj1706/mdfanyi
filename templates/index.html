@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>匠翻译 - 专业的Markdown翻译工具</title>
+    <title>匠翻译 - Markdown长文本翻译工具</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="icon" href="{{ url_for('static', filename='favicon.svg') }}" type="image/svg+xml">
@@ -13,12 +13,12 @@
     <div class="container">
         <header>
             <div class="logo">
-                <img src="{{ url_for('static', filename='logo.svg') }}" alt="匠翻译" width="60" height="60">
+                <img src="{{ url_for('static', filename='logo.svg') }}" alt="匠翻译" width="48" height="48">
                 <h1>匠翻译</h1>
             </div>
-            <p>保持Markdown格式的翻译工具</p>
+            <p>保持Markdown格式的专业翻译工具</p>
             <div class="theme-toggle">
-                <button id="theme-toggle-btn" class="small-button">
+                <button id="theme-toggle-btn" class="icon-button" title="切换主题">
                     <i class="fas fa-moon"></i>
                 </button>
             </div>
@@ -29,7 +29,7 @@
                 <div class="editor-header">
                     <h3>原文 (Markdown)</h3>
                     <div class="editor-controls">
-                        <button id="clear-source" class="small-button"><i class="fas fa-trash"></i> 清空</button>
+                        <button id="clear-source" class="icon-button" title="清空内容"><i class="fas fa-trash"></i></button>
                         <span id="source-count">0/50000</span>
                     </div>
                 </div>
@@ -37,7 +37,9 @@
             </div>
             
             <div class="action-panel">
-                <button id="translate-btn"><i class="fas fa-arrow-right"></i> 翻译</button>
+                <button id="translate-btn" class="primary-button">
+                    <i class="fas fa-exchange-alt"></i> 翻译
+                </button>
                 <div id="progress-container" style="display:none;">
                     <div class="spinner"></div>
                     <div id="progress-text">翻译中...</div>
@@ -48,53 +50,55 @@
                 <div class="editor-header">
                     <h3>译文 (中文)</h3>
                     <div class="editor-controls">
-                        <button id="copy-result" class="small-button"><i class="fas fa-copy"></i> 复制</button>
-                        <button id="download-result" class="small-button"><i class="fas fa-download"></i> 下载</button>
+                        <button id="copy-result" class="icon-button" title="复制到剪贴板"><i class="fas fa-copy"></i></button>
+                        <button id="download-result" class="icon-button" title="下载译文"><i class="fas fa-download"></i></button>
                     </div>
                 </div>
-                <textarea id="result-text" class="result-area" placeholder="翻译结果将显示在这里..."></textarea>
+                <textarea id="result-text" class="result-area" placeholder="翻译结果将显示在这里..." readonly></textarea>
             </div>
         </div>
         
         <div id="status-bar" class="hidden">
             <div id="format-info"></div>
             <div id="translation-info"></div>
+            <div id="success-rate"></div>
         </div>
         
-        <div class="advanced-settings-wrapper">
-            <button id="advanced-settings-btn" class="small-button">
-                <i class="fas fa-cog"></i> 高级设置
-            </button>
-            
-            <div id="advanced-settings-panel" style="display:none;">
-                <div class="settings-panel">
-                    <div class="setting-group" id="api-key-container">
-                        <label for="api-key">OpenAI API密钥:</label>
-                        <input type="password" id="api-key" placeholder="输入您的OpenAI API密钥" value="{{ api_key }}">
-                    </div>
-                    
+        <button id="settings-btn" class="settings-button">
+            <i class="fas fa-cog"></i>
+        </button>
+        
+        <div id="settings-modal" class="modal hidden">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>设置</h3>
+                    <button id="close-settings" class="icon-button"><i class="fas fa-times"></i></button>
+                </div>
+                <div class="modal-body">
                     <div class="setting-group" id="model-select-container">
-                        <label for="model-select">模型:</label>
+                        <label for="model-select">模型</label>
                         <select id="model-select">
                             <option value="gpt-4o-mini" selected>GPT-4o-mini</option>
                             <option value="gpt-4o">GPT-4o</option>
                         </select>
                     </div>
                     
-                    <div class="setting-group temperature-container" id="temperature-container">
-                        <label for="temperature">翻译创造性 (0-1):</label>
-                        <input type="range" id="temperature" min="0" max="1" step="0.1" value="0.1">
-                        <span id="temperature-value">0.1</span>
+                    <div class="setting-group" id="temperature-container">
+                        <label for="temperature">翻译创造性</label>
+                        <div class="slider-container">
+                            <input type="range" id="temperature" min="0" max="1" step="0.1" value="0.1">
+                            <span id="temperature-value">0.1</span>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
         
         <footer>
-            <p>匠翻译 &copy; 2023 | 保持Markdown格式的专业翻译工具</p>
+            <p>匠翻译 &copy; 2023 | <a href="https://aieasyuse.tech/" target="_blank" rel="noopener noreferrer">小匠AI</a></p>
         </footer>
     </div>
     
     <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
-</html> 
+</html>

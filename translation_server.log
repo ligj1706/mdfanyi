@@ -1,0 +1,133 @@
+2025-03-10 13:11:33,534 - __main__ - INFO - SVG files created successfully!
+2025-03-10 13:11:33,565 - werkzeug - WARNING -  * Debugger is active!
+2025-03-10 13:11:33,584 - werkzeug - INFO -  * Debugger PIN: 724-916-023
+2025-03-10 13:11:40,480 - __main__ - INFO - SVG files created successfully!
+2025-03-10 13:12:13,436 - __main__ - INFO - SVG files created successfully!
+2025-03-10 13:12:30,809 - __main__ - INFO - SVG files created successfully!
+2025-03-10 13:12:44,305 - __main__ - INFO - SVG files created successfully!
+2025-03-10 13:12:44,518 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://198.18.0.1:8080
+2025-03-10 13:12:44,519 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-03-10 13:12:44,520 - werkzeug - INFO -  * Restarting with stat
+2025-03-10 13:12:44,937 - __main__ - INFO - SVG files created successfully!
+2025-03-10 13:12:44,958 - werkzeug - WARNING -  * Debugger is active!
+2025-03-10 13:12:44,977 - werkzeug - INFO -  * Debugger PIN: 724-916-023
+2025-03-10 13:12:47,522 - werkzeug - INFO - 127.0.0.1 - - [10/Mar/2025 13:12:47] "GET / HTTP/1.1" 200 -
+2025-03-10 13:12:47,544 - werkzeug - INFO - 127.0.0.1 - - [10/Mar/2025 13:12:47] "GET /static/script.js HTTP/1.1" 200 -
+2025-03-10 13:12:47,545 - werkzeug - INFO - 127.0.0.1 - - [10/Mar/2025 13:12:47] "GET /static/style.css HTTP/1.1" 200 -
+2025-03-10 13:12:47,571 - werkzeug - INFO - 127.0.0.1 - - [10/Mar/2025 13:12:47] "GET /static/logo.svg HTTP/1.1" 200 -
+2025-03-10 13:12:47,811 - werkzeug - INFO - 127.0.0.1 - - [10/Mar/2025 13:12:47] "GET /static/favicon.svg HTTP/1.1" 200 -
+2025-03-10 13:12:47,820 - werkzeug - INFO - 127.0.0.1 - - [10/Mar/2025 13:12:47] "[36mGET /static/favicon.svg HTTP/1.1[0m" 304 -
+2025-03-10 13:17:28,231 - werkzeug - INFO - 127.0.0.1 - - [10/Mar/2025 13:17:28] "GET / HTTP/1.1" 200 -
+2025-03-10 13:17:28,241 - werkzeug - INFO - 127.0.0.1 - - [10/Mar/2025 13:17:28] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-03-10 13:17:28,242 - werkzeug - INFO - 127.0.0.1 - - [10/Mar/2025 13:17:28] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2025-03-10 13:17:28,280 - werkzeug - INFO - 127.0.0.1 - - [10/Mar/2025 13:17:28] "[36mGET /static/logo.svg HTTP/1.1[0m" 304 -
+2025-03-10 13:17:28,284 - werkzeug - INFO - 127.0.0.1 - - [10/Mar/2025 13:17:28] "GET /static/script.js HTTP/1.1" 200 -
+2025-03-10 13:20:20,736 - werkzeug - INFO - 127.0.0.1 - - [10/Mar/2025 13:20:20] "[31m[1mPOST /translate HTTP/1.1[0m" 401 -
+2025-03-10 13:20:54,725 - __main__ - INFO - SVG files created successfully!
+2025-03-10 13:20:54,755 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://198.18.0.1:8080
+2025-03-10 13:20:54,755 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-03-10 13:20:54,756 - werkzeug - INFO -  * Restarting with stat
+2025-03-10 13:20:55,149 - __main__ - INFO - SVG files created successfully!
+2025-03-10 13:20:55,170 - werkzeug - WARNING -  * Debugger is active!
+2025-03-10 13:20:55,189 - werkzeug - INFO -  * Debugger PIN: 724-916-023
+2025-03-10 13:20:56,982 - werkzeug - INFO - 127.0.0.1 - - [10/Mar/2025 13:20:56] "GET / HTTP/1.1" 200 -
+2025-03-10 13:20:57,002 - werkzeug - INFO - 127.0.0.1 - - [10/Mar/2025 13:20:57] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2025-03-10 13:20:57,003 - werkzeug - INFO - 127.0.0.1 - - [10/Mar/2025 13:20:57] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-03-10 13:20:57,025 - werkzeug - INFO - 127.0.0.1 - - [10/Mar/2025 13:20:57] "GET /static/logo.svg HTTP/1.1" 200 -
+2025-03-10 13:21:11,369 - werkzeug - INFO - 127.0.0.1 - - [10/Mar/2025 13:21:11] "[31m[1mPOST /translate HTTP/1.1[0m" 401 -
+2025-03-10 13:22:43,799 - __main__ - INFO - SVG files created successfully!
+2025-03-10 13:22:43,827 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://198.18.0.1:8080
+2025-03-10 13:22:43,827 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-03-10 13:22:43,827 - werkzeug - INFO -  * Restarting with stat
+2025-03-10 13:22:44,238 - __main__ - INFO - SVG files created successfully!
+2025-03-10 13:22:44,259 - werkzeug - WARNING -  * Debugger is active!
+2025-03-10 13:22:44,278 - werkzeug - INFO -  * Debugger PIN: 724-916-023
+2025-03-10 13:22:45,717 - werkzeug - INFO - 127.0.0.1 - - [10/Mar/2025 13:22:45] "GET / HTTP/1.1" 200 -
+2025-03-10 13:22:45,734 - werkzeug - INFO - 127.0.0.1 - - [10/Mar/2025 13:22:45] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-03-10 13:22:45,739 - werkzeug - INFO - 127.0.0.1 - - [10/Mar/2025 13:22:45] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2025-03-10 13:22:45,764 - werkzeug - INFO - 127.0.0.1 - - [10/Mar/2025 13:22:45] "GET /static/logo.svg HTTP/1.1" 200 -
+2025-03-10 13:22:45,771 - werkzeug - INFO - 127.0.0.1 - - [10/Mar/2025 13:22:45] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2025-03-10 13:22:52,944 - openai._base_client - INFO - Retrying request to /models in 0.375375 seconds
+2025-03-10 13:22:54,783 - httpx - INFO - HTTP Request: GET https://api.openai.com/v1/models "HTTP/1.1 200 OK"
+2025-03-10 13:22:54,790 - __main__ - INFO - API密钥验证成功
+2025-03-10 13:22:54,791 - __main__ - INFO - 文本格式分析: Markdown元素总数: 10
+2025-03-10 13:22:54,792 - __main__ - INFO - 开始分割文本...
+2025-03-10 13:22:54,795 - __main__ - INFO - 文本分割完成，共3个块
+2025-03-10 13:22:54,795 - __main__ - INFO - 处理块 1/3，长度: 2463字符
+2025-03-10 13:22:54,806 - __main__ - INFO - 开始翻译，文本长度: 2377字符，章节: Adding a recommendation engine to your existing application with vector search 
+2025-03-10 13:23:04,840 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-10 13:23:04,851 - __main__ - INFO - 翻译成功，译文长度: 910字符
+2025-03-10 13:23:05,357 - __main__ - INFO - 处理块 2/3，长度: 2449字符
+2025-03-10 13:23:05,378 - __main__ - INFO - 开始翻译，文本长度: 2384字符，章节: Customer Fingerprints table for customer similarity search
+2025-03-10 13:23:05,454 - openai._base_client - INFO - Retrying request to /chat/completions in 0.470930 seconds
+2025-03-10 13:23:06,007 - openai._base_client - INFO - Retrying request to /chat/completions in 0.931201 seconds
+2025-03-10 13:23:07,012 - __main__ - ERROR - 翻译API错误: Connection error.
+2025-03-10 13:23:07,013 - __main__ - WARNING - 块 2/3 翻译返回错误，尝试 1/3
+2025-03-10 13:23:09,034 - __main__ - INFO - 开始翻译，文本长度: 2384字符，章节: Customer Fingerprints table for customer similarity search
+2025-03-10 13:23:19,001 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-10 13:23:19,007 - __main__ - INFO - 翻译成功，译文长度: 1045字符
+2025-03-10 13:23:19,513 - __main__ - INFO - 处理块 3/3，长度: 2451字符
+2025-03-10 13:23:19,532 - __main__ - INFO - 开始翻译，文本长度: 2409字符，章节: Customer purchase ranking batch job
+2025-03-10 13:23:19,602 - openai._base_client - INFO - Retrying request to /chat/completions in 0.402090 seconds
+2025-03-10 13:23:32,822 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-10 13:23:32,826 - __main__ - INFO - 翻译成功，译文长度: 976字符
+2025-03-10 13:23:33,329 - __main__ - INFO - 所有文本块翻译成功
+2025-03-10 13:23:33,330 - werkzeug - INFO - 127.0.0.1 - - [10/Mar/2025 13:23:33] "POST /translate HTTP/1.1" 200 -
+2025-03-10 13:30:17,534 - werkzeug - INFO -  * Detected change in '/Users/john/Documents/project/jiangfanyi/app.py', reloading
+2025-03-10 13:30:17,602 - werkzeug - INFO -  * Restarting with stat
+2025-03-10 13:30:36,030 - __main__ - INFO - SVG files created successfully!
+2025-03-10 13:30:36,073 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://198.18.0.1:8080
+2025-03-10 13:30:36,073 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-03-10 13:30:36,074 - werkzeug - INFO -  * Restarting with stat
+2025-03-10 13:30:36,484 - __main__ - INFO - SVG files created successfully!
+2025-03-10 13:30:36,507 - werkzeug - WARNING -  * Debugger is active!
+2025-03-10 13:30:36,526 - werkzeug - INFO -  * Debugger PIN: 724-916-023
+2025-03-10 13:30:46,312 - werkzeug - INFO - 127.0.0.1 - - [10/Mar/2025 13:30:46] "GET / HTTP/1.1" 200 -
+2025-03-10 13:30:46,341 - werkzeug - INFO - 127.0.0.1 - - [10/Mar/2025 13:30:46] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2025-03-10 13:30:46,342 - werkzeug - INFO - 127.0.0.1 - - [10/Mar/2025 13:30:46] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+2025-03-10 13:30:46,366 - werkzeug - INFO - 127.0.0.1 - - [10/Mar/2025 13:30:46] "GET /static/logo.svg HTTP/1.1" 200 -
+2025-03-10 13:30:46,374 - werkzeug - INFO - 127.0.0.1 - - [10/Mar/2025 13:30:46] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2025-03-10 13:30:52,371 - httpx - INFO - HTTP Request: GET https://api.openai.com/v1/models "HTTP/1.1 200 OK"
+2025-03-10 13:30:52,376 - __main__ - INFO - API密钥验证成功
+2025-03-10 13:30:52,377 - __main__ - INFO - 文本格式分析: Markdown元素总数: 10
+2025-03-10 13:30:52,377 - __main__ - INFO - 开始分割文本...
+2025-03-10 13:30:52,379 - __main__ - INFO - 文本分割完成，共5个块
+2025-03-10 13:30:52,379 - __main__ - INFO - 处理块 1/5，长度: 1586字符
+2025-03-10 13:30:52,388 - __main__ - INFO - 开始翻译，文本长度: 1575字符，章节: 开始部分
+2025-03-10 13:30:58,105 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-10 13:30:58,114 - __main__ - WARNING - 格式元素不匹配: headers 原文有0个，译文有1个
+2025-03-10 13:30:58,114 - __main__ - WARNING - 翻译结果验证失败，可能存在格式问题
+2025-03-10 13:30:58,620 - __main__ - INFO - 处理块 2/5，长度: 1702字符
+2025-03-10 13:30:58,644 - __main__ - INFO - 开始翻译，文本长度: 1616字符，章节: Adding a recommendation engine to your existing application with vector search 
+2025-03-10 13:31:06,308 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-10 13:31:06,311 - __main__ - INFO - 翻译成功，译文长度: 580字符
+2025-03-10 13:31:06,816 - __main__ - INFO - 处理块 3/5，长度: 1848字符
+2025-03-10 13:31:06,828 - __main__ - INFO - 开始翻译，文本长度: 1794字符，章节: Visual walkthrough of the recommendation engine
+2025-03-10 13:31:12,655 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-10 13:31:12,657 - __main__ - WARNING - 格式元素不匹配: code_blocks 原文有0个，译文有1个
+2025-03-10 13:31:12,658 - __main__ - WARNING - 翻译结果验证失败，可能存在格式问题
+2025-03-10 13:31:13,161 - __main__ - INFO - 处理块 4/5，长度: 1835字符
+2025-03-10 13:31:13,176 - __main__ - INFO - 开始翻译，文本长度: 1793字符，章节: Customer purchase ranking batch job
+2025-03-10 13:31:20,745 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-10 13:31:20,748 - __main__ - INFO - 翻译成功，译文长度: 701字符
+2025-03-10 13:31:21,255 - __main__ - INFO - 处理块 5/5，长度: 434字符
+2025-03-10 13:31:21,278 - __main__ - INFO - 开始翻译，文本长度: 392字符，章节: Customer purchase ranking batch job
+2025-03-10 13:31:24,750 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-03-10 13:31:24,753 - __main__ - INFO - 翻译成功，译文长度: 164字符
+2025-03-10 13:31:25,258 - __main__ - INFO - 所有文本块翻译成功
+2025-03-10 13:31:25,262 - werkzeug - INFO - 127.0.0.1 - - [10/Mar/2025 13:31:25] "POST /translate HTTP/1.1" 200 -
+2025-03-10 13:34:12,112 - werkzeug - INFO -  * Detected change in '/Users/john/Documents/project/jiangfanyi/app.py', reloading
+2025-03-10 13:34:12,203 - werkzeug - INFO -  * Restarting with stat
+2025-03-10 13:35:13,944 - werkzeug - INFO -  * Restarting with stat

@@ -26,3 +26,19 @@
 1. 在左侧文本框中粘贴需要翻译的英文Markdown文本
 2. 点击"翻译"按钮
 3. 翻译结果将显示在右侧文本框中 
+
+转md的对话参考：https://grok.com/share/bGVnYWN5_f728ebee-56e1-4428-807f-5eebd9121f81
+
+## 常用命令
+
+cd /Users/john/Documents/aitian/mynewenv
+source bin/activate
+cd /Users/john/Documents/aitian/jiangfanyi
+
+===
+
+git add .
+
+git commit -m "更新代码"
+
+git push origin main -f
