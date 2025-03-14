@@ -39,6 +39,6 @@ cd /Users/john/Documents/aitian/jiangfanyi
 
 git add .
 
-git commit -m "更新代码"
+git commit -m "更新介绍"
 
 git push origin main -f
