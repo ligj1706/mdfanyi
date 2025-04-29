@@ -85,9 +85,7 @@ python app.py
 
 欢迎提交 Issue 和 Pull Request！
 
-## 许可证
-
-MIT License
+交流加V：a52947593
 
 ## 推荐工具：网页转 Markdown
 
@@ -97,10 +95,10 @@ MIT License
    支持一键将网页内容智能转换为 Markdown，支持实时预览、复制、下载、Notion 集成等功能。  
    [Chrome 应用商店地址](https://chromewebstore.google.com/detail/webink-%E6%99%BA%E8%83%BD%E7%BD%91%E9%A1%B5%E8%BD%ACmarkdown%E5%B7%A5%E5%85%B7/lhifbnmampdmdadbhpeeoikkljhiaohn)
 
-2. **Clearly Reader**  
-   支持网页阅读模式、导出为 Markdown/PDF，界面简洁，适合内容整理。  
-   [Chrome 应用商店地址](https://chrome.google.com/webstore/detail/clearly-reader-your-ai-re/oknpjjbmpnndlpmnhmekjpocelpnlfdi)
-
-3. **MarkDownload - 网页转 Markdown**  
+2. **MarkDownload - 网页转 Markdown**  
    一款开源的浏览器扩展，支持一键将当前网页保存为 Markdown 文件。  
    [Chrome 应用商店地址](https://chrome.google.com/webstore/detail/markdownload-markdown-web/pcmpcfapbekmbjjkdalcgopdkipoggdi)
+
+## 许可证
+
+MIT License
