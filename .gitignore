@@ -3,4 +3,6 @@ __pycache__/
 *.pyc
 .DS_Store
 venv/
-.vscode/ 
+.vscode/
+cache/
+*.log 
