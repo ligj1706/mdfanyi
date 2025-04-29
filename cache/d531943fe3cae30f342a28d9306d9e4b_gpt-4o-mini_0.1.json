@@ -1,4 +1,0 @@
-{
-  "translated": "1.  **OpenAI API 文档  \n    **了解如何使用 OpenAI API 进行文本生成:  \n    [阅读更多](https://platform.openai.com/docs/)  \n2.  **LangChain 文档  \n    **官方指南，使用 LangChain 进行 RAG 管道的编排:  \n    [阅读更多](https://www.langchain.com/)  \n3.  **Pinecone 文档  \n    **关于设置和使用 Pinecone 进行向量搜索的全面资源:  \n    [阅读更多](https://docs.pinecone.io/)  \n4.  **Kaggle 上的 ArXiv 数据集  \n    **访问 ArXiv 开放获取数据集以获取研究论文:  \n    [阅读更多](https://www.kaggle.com/datasets/Cornell-University/arxiv)  \n5.  **句子变换器  \n    **了解 sentence-transformers 库及其在嵌入中的使用:  \n    [阅读更多](https://www.sbert.net/)  \n6.  **Semantic Scholar API  \n    **探索 Semantic Scholar API 以获取学术论文:  \n    [阅读更多](https://www.semanticscholar.org/product/api)  \n7.  **Pinecone 博客：使用 RAG 构建  \n    **关于使用 Pinecone 进行检索增强生成的详细教程:  \n    [阅读更多](https://www.pinecone.io/learn/rag/)  \n8.  **Google Colab 文档  \n    **适合初学者的文档，帮助您开始使用 Google Colab:  \n    [阅读更多](https://colab.research.google.com/)  ",
-  "timestamp": 1742196195.1164238
-}
