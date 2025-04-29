@@ -18,8 +18,20 @@
 
 1. 克隆仓库
 2. 安装依赖：`pip install -r requirements.txt`
-3. 设置环境变量：`export OPENAI_API_KEY=你的OpenAI_API密钥`
+3. 配置环境变量：
+   - 复制 `.env.example` 文件并重命名为 `.env`
+   - 在 `.env` 文件中填入你的 OpenAI API 密钥
 4. 运行应用：`python app.py`
+
+## 环境变量配置
+
+项目使用 `.env` 文件管理环境变量，主要配置项包括：
+
+- `OPENAI_API_KEY`: OpenAI API密钥（必需）
+- `FLASK_ENV`: 运行环境（development/production）
+- `FLASK_APP`: 应用入口文件
+
+注意：请确保不要将包含实际API密钥的 `.env` 文件提交到版本控制系统中。
 
 ## 使用方法
 
